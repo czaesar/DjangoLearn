@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from news.views import index #шаг 1 импортируем index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('news/', index) #шаг 2, переход на news будет вызывать функцию в views с название index
+
 ]
