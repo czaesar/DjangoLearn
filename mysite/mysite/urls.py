@@ -14,11 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from news.views import index #шаг 1 импортируем index
+from django.urls import path, include #шаг 4 импорт include для того чтобы подключать другие urls
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('news/', index) #шаг 2, переход на news будет вызывать функцию в views с название index
+    path('news/', include('news.urls')) #шаг 5, передаем вторым параметром include
 
 ]
