@@ -19,6 +19,6 @@ from django.urls import path, include #шаг 4 импорт include для то
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('news/', include('news.urls')) #шаг 5, передаем вторым параметром include
+    path('', include('news.urls')) #шаг 8, создаем пустую строку, чтобы показывало главную страницу без префиксов
 
 ]
