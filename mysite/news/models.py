@@ -7,7 +7,7 @@ class News(models.Model): #шаг 9
     content = models.TextField(blank=True, verbose_name='Контент')#blank не обязательно к заполнению
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата Публикации') #дата и время создания новости
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Обновлено')#Время и дата обновления новости
-    photo = models.ImageField(upload_to='photos/%Y/%m/%d/', verbose_name='Фото')#позволяет загружать изображения, upload_to позволяет выбирать куда именно загружать файл /%Y -год /%m -месяц позволяет поструктурно загружать фотки
+    photo = models.ImageField(upload_to='photos/%Y/%m/%d/', verbose_name='Фото', blank = True)#позволяет загружать изображения, upload_to позволяет выбирать куда именно загружать файл /%Y -год /%m -месяц позволяет поструктурно загружать фотки
     is_published = models.BooleanField(default=True, verbose_name='Опубликовано')#новость по умолчанию публикуется 
     
 
@@ -18,3 +18,12 @@ class News(models.Model): #шаг 9
         verbose_name = 'Новость ' #изменения в админке
         verbose_name_plural = 'Новости' #во множественом числе
         ordering = ['-created_at']
+
+
+class Category(models.Model):
+    title = models.CharField(max_length=150, db_index=True, verbose_name='Наименование категорий')
+
+    class Meta:
+      verbose_name = 'Категория ' 
+      verbose_name_plural = 'Категории' 
+      ordering = ['title']
