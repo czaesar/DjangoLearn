@@ -28,4 +28,4 @@ urlpatterns = [
 
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA__ROOT) #Формируем этот маршрут только в отладочном режиме
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #Формируем этот маршрут только в отладочном режиме
