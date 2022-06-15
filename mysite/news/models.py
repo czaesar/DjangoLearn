@@ -1,14 +1,20 @@
 from distutils.command.upload import upload
+from tabnanny import verbose
 from django.db import models
 
 class News(models.Model): #шаг 9
-    title = models.CharField(max_length=150)
-    content = models.TextField(blank=True)#blank не обязательно к заполнению
-    created_at = models.DateTimeField(auto_now_add=True) #дата и время создания новости
-    updated_at = models.DateTimeField(auto_now=True)#Время и дата обновления новости
-    photo = models.ImageField(upload_to='photos/%Y/%m/%d/')#позволяет загружать изображения, upload_to позволяет выбирать куда именно загружать файл /%Y -год /%m -месяц позволяет поструктурно загружать фотки
-    is_published = models.BooleanField(default=True)#новость по умолчанию публикуется 
+    title = models.CharField(max_length=150, verbose_name='Наименование')
+    content = models.TextField(blank=True, verbose_name='Контент')#blank не обязательно к заполнению
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата Публикации') #дата и время создания новости
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Обновлено')#Время и дата обновления новости
+    photo = models.ImageField(upload_to='photos/%Y/%m/%d/', verbose_name='Фото')#позволяет загружать изображения, upload_to позволяет выбирать куда именно загружать файл /%Y -год /%m -месяц позволяет поструктурно загружать фотки
+    is_published = models.BooleanField(default=True, verbose_name='Опубликовано')#новость по умолчанию публикуется 
     
 
     def __str__(self): #При вызове  News.objects.all() в shell консоли title будет выводится таким каким мы его задавали в переменной News1,News2 и т.д.
         return self.title
+
+    class Meta:
+        verbose_name = 'Новость ' #изменения в админке
+        verbose_name_plural = 'Новости' #во множественом числе
+        ordering = ['-created_at']
