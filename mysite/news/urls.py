@@ -5,5 +5,5 @@ from .views import *            #шаг 8
 
 urlpatterns = [   #шаг 7
     path('', index),
-    path('test/', test), #шаг 9
+   
 ]
