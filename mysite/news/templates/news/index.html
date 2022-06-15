@@ -17,9 +17,9 @@
     <div>
         <p>{{ item.title }}</p>
         <p>{{ item.content }}</p>
-        <p>{{ item.created_at }}</p>
+        <p>{{ item.created_at  | date:"Y-m-d H:i" }}</p>
     </div>
-
+    <hr>
 {% endfor %}
 </body>
 </html>
