@@ -18,13 +18,14 @@ from django.conf import settings
 from django.conf.urls.static import static #возможно эту дичь вручную писать над будет
 from django.contrib import admin
 from django.urls import path, include #шаг 4 импорт include для того чтобы подключать другие urls
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('news.urls')) #шаг 8, создаем пустую строку, чтобы показывало главную страницу без префиксов
 
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 if settings.DEBUG:
