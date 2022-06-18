@@ -12,6 +12,9 @@ class News(models.Model): #шаг 9
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/', verbose_name='Фото', blank = True)#позволяет загружать изображения, upload_to позволяет выбирать куда именно загружать файл /%Y -год /%m -месяц позволяет поструктурно загружать фотки
     is_published = models.BooleanField(default=True, verbose_name='Опубликовано')#новость по умолчанию публикуется 
     category = models.ForeignKey('Category', on_delete=models.PROTECT, null = True, verbose_name='Категория')
+
+
+
     
 
     def __str__(self): #При вызове  News.objects.all() в shell консоли title будет выводится таким каким мы его задавали в переменной News1,News2 и т.д.
