@@ -4,6 +4,7 @@ from .views import *            #шаг 8
 
 
 urlpatterns = [   #шаг 7
-    path('', index),
+    path('', index, name = 'home'),
+    path('about/', about, name='about')
    
 ]
