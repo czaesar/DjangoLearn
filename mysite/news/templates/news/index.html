@@ -58,17 +58,27 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
+                    {% for item in news %}
                     <div class="post-preview">
                         <a href="post.html">
-                            <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
-                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
+                            <h2 class="post-title">{{ item.title }}</h2>
+                            {% if item.photo %}
+                            <img src="{{ item.photo.url }}" alt="" width="350">
+                          {% else %}
+                            <img src="https://picsum.photos/200/300/?blur=2" alt="">
+                          {% endif %}
+                            
+                        </a>
+                        <a>
+                        <h3 class="post-subtitle">{{ item.content }}</h3>
                         </a>
                         <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 24, 2022
+                           Posted by <b>admin</b>
+                        
+                            {{ item.created_at|date:"Y-m-d H:i:s" }}
                         </p>
                     </div>
+                    {% endfor %}
                     <!-- Divider-->
                     <hr class="my-4" />
                     <!-- Post preview-->
