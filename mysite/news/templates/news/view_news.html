@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+
+{{ news_item.title }}
+
+{% endblock %}
+
+
+
+{% block header %}
+<header class="masthead" style="background-image: url({% static 'bootstrap/img/home-bg.jpg' %})">
+    
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Мой Блог</h1>
+                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+{% block content %} 
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- Post preview-->
+            
+            <div class="post-preview">
+                <a href="post.html">
+                    <h2 class="post-title">{{ news_item.title }}</h2>
+                    {% if item.photo %}
+                    <img src="{{ news_item.photo.url }}" alt="" width="350">
+                  {% else %}
+                    <img src="https://picsum.photos/200/300/?blur=2" alt="">
+                  {% endif %}
+                    
+                </a>
+                <a>
+                <h3 class="post-subtitle">{{ news_item.content|linebreaks|truncatewords:50 }}</h3>
+                </a>
+                <p class="post-meta">
+                   Posted by <b>admin</b>
+                
+                    {{ item.created_at|date:"Y-m-d H:i:s" }}
+                </p>
+            </div>
+           
+      
+            <!-- Divider-->
+            <hr class="my-4" />
+            <!-- Pager-->
+            <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
