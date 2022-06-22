@@ -8,5 +8,6 @@ urlpatterns = [   #шаг 7
     path('', index, name = 'home'),
     path('about/', about, name='about'),
     path('news/<int:news_id>/', view_news, name = 'view_news'), # Создаем путь который по id будет переходить на новости
+    path('contacts/',contacts, name = 'contacts')
 ]
 

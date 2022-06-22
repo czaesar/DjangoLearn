@@ -21,3 +21,8 @@ def about(request):
 def view_news(request, news_id):
     news_item = News.objects.get(pk=news_id)
     return render(request, 'news/view_news.html', {"news_item": news_item})
+
+
+
+def contacts(request):
+    return render(request, 'news/contacts.html', {'title': 'Контакты'})
