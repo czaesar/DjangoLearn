@@ -135,3 +135,10 @@ MEDIA_URL = '/media/'#для загрузки файлов
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_HOST =   'smtp.mail.ru'            #WMxr7fZWFocQtfFcVZht
+EMAIP_PORT = 465
+EMAIL_HOST_USER = 'unsterdam_adm@mail.ru'
+EMAIL_HOST_PASSWORD = '3216543aa'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False

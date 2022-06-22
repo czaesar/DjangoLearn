@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import  HttpResponse
 from .models import News #импот созданных моделей
-
+from django.core.mail import send_mail
+from .forms import ContactForm
 
 
 def index(request):
@@ -25,4 +26,11 @@ def view_news(request, news_id):
 
 
 def contacts(request):
+    context = {}
+    if request.method == 'POST':
+        pass
+    else:
+        form = ContactForm()
+    context['form'] = form
     return render(request, 'news/contacts.html', {'title': 'Контакты'})
+
