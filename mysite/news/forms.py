@@ -20,6 +20,8 @@ class ContactForm(forms.Form):
     message = forms.CharField(
         min_length=20,  
         widget=forms.Textarea(
-            attrs={'placeholder': 'Сообщение'}
+            attrs={'placeholder': 'Введите сообщение'}
         )
     )
+
+    
